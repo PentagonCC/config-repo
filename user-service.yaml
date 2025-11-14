@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring_practice
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  cloud:
+    circuitbreaker:
+      resilience4j:
+        instances:
+          serviceBreaker:
+            slidingWindowSize: 10
+            failureRateThreshold: 50
+            waitDurationInOpenState: 10s
+            permittedNumberOfCallsInHalfOpenState: 3
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            slidingWindowType: COUNT_BASED
+            registerHealthIndicator: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    enabled: true
+  instance:
+    prefer-ip-address: true
