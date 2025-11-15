@@ -7,7 +7,7 @@ spring:
     host: smtp.mail.ru
     port: 465
     username: gun_gun12@mail.ru
-    password: L5kxint2EdowsMFsLw5
+    password: L5kxint2EdowsMFsLw5r
     protocol: smtps
     properties:
       mail:
