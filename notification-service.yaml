@@ -15,6 +15,19 @@ spring:
           auth: true
           starttls:
             enable: true
+  cloud:
+    circuitbreaker:
+      resilience4j:
+        instances:
+          serviceBreaker:
+            slidingWindowSize: 10
+            failureRateThreshold: 50
+            waitDurationInOpenState: 10s
+            permittedNumberOfCallsInHalfOpenState: 3
+            minimumNumberOfCalls: 5
+            automaticTransitionFromOpenToHalfOpenEnabled: true
+            slidingWindowType: COUNT_BASED
+            registerHealthIndicator: true
 eureka:
   client:
     service-url:
