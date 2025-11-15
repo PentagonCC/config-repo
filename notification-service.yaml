@@ -19,7 +19,7 @@ spring:
     circuitbreaker:
       resilience4j:
         instances:
-          serviceBreaker:
+          notificationBreaker:
             slidingWindowSize: 10
             failureRateThreshold: 50
             waitDurationInOpenState: 10s
