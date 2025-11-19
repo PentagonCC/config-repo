@@ -4,7 +4,7 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:postgresql://kafka:5432/spring_practice
+    url: jdbc:postgresql://postgres:5432/spring_practice
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
@@ -32,7 +32,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka-server:8761/
+      defaultZone: http://eureka-server:8761/eureka/
     enabled: true
   instance:
     prefer-ip-address: true
